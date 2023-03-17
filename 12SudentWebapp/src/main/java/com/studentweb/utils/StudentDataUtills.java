@@ -1,5 +1,6 @@
 package com.studentweb.utils;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -54,6 +55,68 @@ private void close(Connection con,Statement stmt,ResultSet rs) {
 	}catch(SQLException e) {
 		e.printStackTrace();
 	}
+}
+public void deleteStudent(int studentid) {
+	Connection con=null;
+	PreparedStatement stmt=null;
+	try {
+		con=this.datasource.getConnection();
+		String sql = "delete from student where id=?";
+		stmt=con.prepareStatement(sql); 
+		stmt.setInt(1,studentid);
+		stmt.execute();
+	
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close(con,stmt,null);
+	}
+}
+public void updateStudent(int id, String first_name, String last_name, String email) {
+	Connection con=null;
+	PreparedStatement stmt=null;
+	try {
+		con=this.datasource.getConnection();
+		String sql = "update student set first_name=?,last_name=?,email=? where id=?";
+		stmt=con.prepareStatement(sql); 
+		stmt.setString(1,first_name);
+		stmt.setString(2,last_name);
+		stmt.setString(3,email);
+		stmt.setInt(4,id);
+		stmt.execute();
+	
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close(con,stmt,null);
+	}		
+}
+public Student getStudent(int studentid) {
+
+	Student student=null;
+	Connection con=null;
+	PreparedStatement stmt=null;
+	ResultSet rs=null;
+	try {
+		con=this.datasource.getConnection();
+		String sql = "select * from student where id=?";
+		stmt=con.prepareStatement(sql); 
+		stmt.setInt(1,studentid);
+		ResultSet resultSet=stmt.executeQuery();
+		while(resultSet.next()) {
+			int id=resultSet.getInt("id");
+			String fname=resultSet.getString("first_name");
+			String lname=resultSet.getString("last_name");
+			String email=resultSet.getString("email");
+           student =new Student(id,fname,lname,email);
+            
+		}
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close(con,stmt,rs);
+	}return student;
+	
 }
 
 }
