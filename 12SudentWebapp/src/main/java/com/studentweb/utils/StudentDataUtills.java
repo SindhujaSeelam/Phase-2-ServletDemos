@@ -91,6 +91,25 @@ public void updateStudent(int id, String first_name, String last_name, String em
 		close(con,stmt,null);
 	}		
 }
+public void addStudent(String first_name, String last_name, String email) {
+	Connection con=null;
+	PreparedStatement stmt=null;
+	try {
+		con=this.datasource.getConnection();
+		String sql = "insert into student(first_name,last_name,email) values(?,?,?)";
+		stmt=con.prepareStatement(sql); 
+		stmt.setString(1,first_name);
+		stmt.setString(2,last_name);
+		stmt.setString(3,email);
+		//stmt.setInt(4,id);
+		stmt.execute();
+	
+	}catch(SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close(con,stmt,null);
+	}		
+}
 public Student getStudent(int studentid) {
 
 	Student student=null;
