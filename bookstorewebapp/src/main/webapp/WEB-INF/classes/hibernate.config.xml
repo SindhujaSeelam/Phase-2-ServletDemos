@@ -11,10 +11,12 @@
   <property name="connection.username">root</property>
   <property name="connection.password">ThinkPad@66</property>
  
-  <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
  <property name="hibernate.format_sql">true</property>
- <property name="hbm2ddl.auto">create</property>
-  <mapping class="com.hibernatehelloworld.domain.Person"/>
+ 
+ <property name="hbm2ddl.auto">update</property>
+ 
+  <mapping class="bookstorewebapp.domain.Book"/>
  
  </session-factory>
 
