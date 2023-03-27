@@ -1,0 +1,10 @@
+create database FlyawayProject;
+use FlyawayProject;
+
+create table flight(fid varchar(50),airline varchar(50),source varchar(50),destination varchar(50),date varchar(50),price int);
+
+create table passenger(pid int AUTO_INCREMENT PRIMARY KEY,fid varchar(50),firstname varchar(50),lastname varchar(50),gender varchar(50),age int,phone int,email varchar(50));
+
+create table admin(username varchar(20),password varchar(20));
+
+insert into admin values("admin","rootroot");

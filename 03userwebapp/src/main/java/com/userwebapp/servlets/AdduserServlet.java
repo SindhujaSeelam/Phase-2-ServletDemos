@@ -48,7 +48,7 @@ public class AdduserServlet extends HttpServlet {
 				 if(result>0) {
 					 out.println("<h1>User created in DB</h1>");
 			 }else {
-				 out.println("<h1> Error creating use</h1>");
+				 out.println("<h1> Error creating user</h1>");
 			 }
 					out.println("<a href=\"index.html\">Home</a>");
 

@@ -5,20 +5,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Available flights</title>
+<title>Flight List</title>
 </head>
-<body background="https://img.freepik.com/free-photo/white-cloud-sky-background_74190-4646.jpg?w=2000">
-<center><table><br><br><br><br>
-<h1>Available Flights</h1>
+<body background="https://img.freepik.com/free-vector/white-abstract-background_23-2148806276.jpg">
+<center>
+<table>
 <tr>
-<th><font size="5" color="darkred">Flight Id  </font></th>
+<th><font size="5" color="darkred">Flight Id</font></th>
 <th><font size="5" color="darkred">Airline</font></th>
 <th><font size="5" color="darkred">Source</font></th>
 <th><font size="5" color="darkred">Destination</font></th>
 <th><font size="5" color="darkred">Date</font></th>
 <th><font size="5" color="darkred">Price</font></th>
 </tr>
-<c:forEach var="flight" items="${flight_list}">
+<c:forEach var="flight" items="${flightlist}">
 <tr>
 <td><font size="5">${flight.fid}</font><br/></td>
 <td><font size="5">${flight.airline}</font><br/></td>
@@ -26,10 +26,11 @@
 <td><font size="5">${flight.destination}</font></td>
 <td><font size="5">${flight.date}</font></td>
 <td><font size="5">${flight.price}</font></td>
-<td><a href="userregister?fid=${flight.fid}&persons=${persons}"style="text-decoration:none"><font size="5">Book</a></td>
 </tr>
 </c:forEach>
-</table></center>
-<br><br><center><a href="booking.jsp" style="text-decoration:none"><font size="5">Back</a></center>
+</table> 
+
+<br><a href="adminoptions.jsp" style="text-decoration:none"><font size="4">Back</font></a>
+</center>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.project.controller;
 
 import java.io.IOException;
 
+
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+//import com.project.model.flight;
 import com.project.utils.flyawayUtills;
 
 
@@ -30,18 +32,25 @@ public class bookflight extends HttpServlet {
 	 }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String fid=request.getParameter("flight.fid");
+		String fid=request.getParameter("fid");
 		String firstname=request.getParameter("firstname");
 		String lastname=request.getParameter("lastname");
 		String gender=request.getParameter("gender");
 		int age=Integer.parseInt(request.getParameter("age"));
-		int phone=Integer.parseInt(request.getParameter("phone"));
+		long  phone=Long.parseLong(request.getParameter("phone"));
 		String email=request.getParameter("email");
-
-		Util.addpassenger(fid,firstname,lastname,gender,age,phone,email);
+		int persons=Integer.parseInt(request.getParameter("persons"));
+		
+		
+	
+		Util.addpassenger(fid,firstname,lastname,gender,age,phone,email,persons);
+		request.setAttribute("persons", persons);
 		request.setAttribute("fid",fid);
+		request.setAttribute("flight",Util.getflight(fid));
+		request.setAttribute("pid",Util.getpassengerid(fid, firstname, lastname, gender, age, phone, email,persons));
 		RequestDispatcher ds=request.getRequestDispatcher("/payment.jsp");
-		ds.forward(request,response);
+		ds.forward(request,response);	
+
 		
 	}
 
