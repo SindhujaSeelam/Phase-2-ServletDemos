@@ -12,7 +12,6 @@ public class flight {
 	private String lastname;
 	private String gender;
 	private int age;
-	private long phone;
 	private String email;
 	private int persons;
 public flight(String fid,String source,String destination,String date){
@@ -39,12 +38,11 @@ public flight(String fid, String airline, String source, String destination, Str
 public flight(int pid) {
 	this.pid=pid;
 }
-public flight(String firstname, String lastname, String gender, int age, long phone, String email,int persons) {
+public flight(String firstname, String lastname, String gender, int age,String email,int persons) {
 	this.setFirstname(firstname);
 	this.setLastname(lastname);
 	this.setGender(gender);
 	this.setAge(age);
-	this.setPhone(phone);
 	this.setEmail(email);
 	this.persons=persons;
 }
@@ -150,12 +148,7 @@ public int getAge() {
 public void setAge(int age) {
 	this.age = age;
 }
-public long getPhone() {
-	return phone;
-}
-public void setPhone(long phone2) {
-	this.phone = phone2;
-}
+
 public String getEmail() {
 	return email;
 }

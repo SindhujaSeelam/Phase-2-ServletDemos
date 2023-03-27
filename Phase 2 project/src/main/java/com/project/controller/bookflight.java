@@ -37,17 +37,16 @@ public class bookflight extends HttpServlet {
 		String lastname=request.getParameter("lastname");
 		String gender=request.getParameter("gender");
 		int age=Integer.parseInt(request.getParameter("age"));
-		long  phone=Long.parseLong(request.getParameter("phone"));
 		String email=request.getParameter("email");
 		int persons=Integer.parseInt(request.getParameter("persons"));
 		
 		
 	
-		Util.addpassenger(fid,firstname,lastname,gender,age,phone,email,persons);
+		Util.addpassenger(fid,firstname,lastname,gender,age,email,persons);
 		request.setAttribute("persons", persons);
 		request.setAttribute("fid",fid);
 		request.setAttribute("flight",Util.getflight(fid));
-		request.setAttribute("pid",Util.getpassengerid(fid, firstname, lastname, gender, age, phone, email,persons));
+		request.setAttribute("pid",Util.getpassengerid(fid, firstname, lastname, gender, age, email,persons));
 		RequestDispatcher ds=request.getRequestDispatcher("/payment.jsp");
 		ds.forward(request,response);	
 

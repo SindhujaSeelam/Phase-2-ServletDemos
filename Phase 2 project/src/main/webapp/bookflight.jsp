@@ -24,7 +24,6 @@
 <option value="Female">Female</option>
 </select>
 <br><br>Age :<input type="number"  size="26"name="age" max="999" onkeypress="if (this.value.length > 999) return false;" required/><br>
-<br>Phone :<input type="number"  name="phone" max="9999999999" onkeypress="if(this.value.length==10) return false;" required/><br>
 <br>Email :<input type="text"  name="email" required/><br>
 <br><br><input type="submit" value="Register"/>
 </center>

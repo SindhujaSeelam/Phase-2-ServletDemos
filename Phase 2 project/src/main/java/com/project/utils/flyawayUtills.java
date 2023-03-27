@@ -69,21 +69,20 @@ public  List<flight> getflight(String source, String destination, String date,in
 }
 
 
-public void addpassenger(String fid,String firstname, String lastname, String gender, int age, long phone, String email, int persons) {
+public void addpassenger(String fid,String firstname, String lastname, String gender, int age,String email, int persons) {
 	Connection con=null;
 	PreparedStatement stmt=null;
 	try {
 		con=this.datasource.getConnection();
-		String sql = "insert into passenger(fid,firstname,lastname,gender,age,phone,email,persons) values(?,?,?,?,?,?,?,?)";
+		String sql = "insert into passenger(fid,firstname,lastname,gender,age,email,persons) values(?,?,?,?,?,?,?)";
 		stmt=con.prepareStatement(sql); 
 		stmt.setString(1,fid);
 		stmt.setString(2,firstname);
 		stmt.setString(3,lastname);
 		stmt.setString(4,gender);
 		stmt.setInt(5,age);
-		stmt.setLong(6,phone);
-		stmt.setString(7,email);
-		stmt.setInt(8, persons);
+		stmt.setString(6,email);
+		stmt.setInt(7, persons);
 		
 		stmt.executeUpdate();
 	
@@ -94,7 +93,7 @@ public void addpassenger(String fid,String firstname, String lastname, String ge
 	}
 		
 }
-public int getpassengerid(String fid,String firstname, String lastname, String gender, int age, long phone, String email, int persons) {
+public int getpassengerid(String fid,String firstname, String lastname, String gender, int age,String email, int persons) {
 	//flight flight=null;
 	int pid=0;
 	Connection con=null;
@@ -102,16 +101,15 @@ public int getpassengerid(String fid,String firstname, String lastname, String g
 	ResultSet rs=null;
 	try {
 		con=this.datasource.getConnection();
-		String sql = "select pid from passenger where fid=? and firstname=? and lastname=? and gender=? and age=? and phone=? and email=? and persons=?";
+		String sql = "select pid from passenger where fid=? and firstname=? and lastname=? and gender=? and age=? and email=? and persons=?";
 		stmt=con.prepareStatement(sql); 
 		stmt.setString(1,fid);
 		stmt.setString(2,firstname);
 		stmt.setString(3,lastname);
 		stmt.setString(4,gender);
 		stmt.setInt(5,age);
-		stmt.setLong(6,phone);
-		stmt.setString(7,email);
-		stmt.setInt(8, persons);
+		stmt.setString(6,email);
+		stmt.setInt(7, persons);
 		 rs=stmt.executeQuery();
 		if(rs.next()) {
 			 pid=rs.getInt("pid");		
@@ -141,10 +139,9 @@ public flight getpassenger(int pid) {
 			String lastname=resultSet.getString("lastname");
 			String gender=resultSet.getString("gender");
 			int age=resultSet.getInt("age");
-			int phone=resultSet.getInt("phone");
 			String email =resultSet.getString("email");
             int persons=resultSet.getInt("persons");
-           flight =new flight(firstname,lastname,gender,age,phone,email,persons);
+           flight =new flight(firstname,lastname,gender,age,email,persons);
            flights.add(flight);
             
 		}
