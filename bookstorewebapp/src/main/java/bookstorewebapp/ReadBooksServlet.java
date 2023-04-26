@@ -25,7 +25,7 @@ public class ReadBooksServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Session session=HibernateUtil.getSessionFactory().openSession();
-		List<Book>books=session.createQuery("from Book")request.list();
+		List<Book>books=(List<Book>) session.createQuery("from Book")request.list();
 		List<Book>javabooks=session.createQuery("from Book B where B.name='java").list();
 		
 		Criteria cr=session.createCriteria(Book.class);
