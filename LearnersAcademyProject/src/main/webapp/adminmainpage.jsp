@@ -24,7 +24,7 @@
 </style>
 </head>
 <body>
-<center><h1>Welcome</h1>
+<center><h1>Welcome To Admin Portal</h1>
 <a href="classesservlet" style="text-decoration:none"><font size="6"><button class="button">Classes</button></a><br>
 <a href="teachersservlet" style="text-decoration:none"><font size="6"><button class="button">Teachers</button></font></a><br>
 <a href="studentsservlet" style="text-decoration:none"><font size="6"><button class="button">Students</button></font></a><br>

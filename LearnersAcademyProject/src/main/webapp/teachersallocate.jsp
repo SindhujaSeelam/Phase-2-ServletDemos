@@ -66,6 +66,6 @@ Select Teacher</font><br>
 </center>
 </form>
 <br><br><br>
-<a href="adminmainpage.jsp" style="text-decoration:none"><font size=5>Back</font></
+<center><a href="adminmainpage.jsp" style="text-decoration:none"><font size=5>Back</font></</a></center>
 </body>
 </html>

@@ -40,6 +40,6 @@
 </c:forEach>
 </table>
 <br><br><br>
-<a href="adminmainpage.jsp" style="text-decoration:none"><font size=5>Back</font></a>
+<center><a href="adminmainpage.jsp" style="text-decoration:none"><font size=5>Back</font></a></center>
 </body>
 </html>

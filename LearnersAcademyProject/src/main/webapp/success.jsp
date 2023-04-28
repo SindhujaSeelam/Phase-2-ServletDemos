@@ -10,7 +10,7 @@
 <body>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-${msg}<br><br>
+<center><br><br><br><h1>${msg}</h1><br><br>
 <a href="classesservlet" style="text-decoration:none"><font size="4"><button class="button">Click to check</button></a><br>
 </body>
 </html>
