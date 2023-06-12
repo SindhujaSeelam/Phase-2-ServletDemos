@@ -31,5 +31,5 @@
 <a href="subjectsservlet" style="text-decoration:none"><font size="6"><button class="button">Subjects</button></a><br>
 <a href="teachersallocationdisplayservlet" style="text-decoration:none"><font size="6"><button class="button">Teachers Allocation</button></a><br>
 <a href="subjectallocationdisplayservlet" style="text-decoration:none"><font size="6"><button class="button">Subjects Allocation</button></a><br><br></center>
-<a href="home.html" style="text-decoration:none"><font size="4" color="black">Logout</font></a>
+<a href="home.jsp" style="text-decoration:none"><font size="4" color="black">Logout</font></a>
 </body></html>
